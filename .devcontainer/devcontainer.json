@@ -16,7 +16,8 @@
 			"blade": "html"
 		},
 		"workbench.colorTheme": "Community Material Theme Palenight High Contrast", 
-		"workbench.iconTheme": "material-icon-theme"
+		"workbench.iconTheme": "material-icon-theme", 
+		"intelephense.environment.includePaths": ["/home/vscode/wp"]
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
