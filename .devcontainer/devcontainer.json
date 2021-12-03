@@ -1,0 +1,69 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/debian
+{
+	"name": "WordPress Dev",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Debian version: bullseye, buster, stretch
+		// Use bullseye or stretch on local arm64/Apple Silicon.
+		"args": { "VARIANT": "bullseye" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.automationShell.linux": "/bin/zsh", 
+		"emmet.includeLanguages": {
+			"blade": "html"
+		},
+		"workbench.colorTheme": "Community Material Theme Palenight High Contrast", 
+		"workbench.iconTheme": "material-icon-theme"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"formulahendry.auto-close-tag",
+		"aaron-bond.better-comments",
+		"mikestead.dotenv",
+		"dsznajder.es7-react-js-snippets",
+		"dbaeumer.vscode-eslint",
+		"pkief.material-icon-theme",
+		"johnbillion.vscode-wordpress-hooks",
+		"editorconfig.editorconfig",
+		"letmaik.git-tree-compare",
+		"amirmarmul.laravel-blade-vscode",
+		"eg2.vscode-npm-script",
+		"damianbal.php-class-generator-composer-psr-4",
+		"felixfbecker.php-debug",
+		"bmewburn.vscode-intelephense-client",
+		"mehedidracula.php-namespace-resolver",
+		"yogensia.searchwpdocs",
+		"albert.tabout",
+		"bradlc.vscode-tailwindcss",
+		"austenc.tailwind-docs",
+		"macieklad.tailwind-sass-syntax",
+		"mblode.twig-language-2",
+		"redhat.vscode-yaml",
+		"gruntfuggly.todo-tree"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8000],
+
+	// "postCreateCommand": "",
+
+	// "containerEnv": {},
+
+	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+
+	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+		"git": "latest",
+		"sshd": "latest",
+		"node": "lts"
+	}
+}
