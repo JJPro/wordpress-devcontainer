@@ -21,29 +21,41 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
+		// Editor Support 
+		"pkief.material-icon-theme",
 		"formulahendry.auto-close-tag",
 		"aaron-bond.better-comments",
-		"mikestead.dotenv",
-		"dsznajder.es7-react-js-snippets",
-		"dbaeumer.vscode-eslint",
-		"pkief.material-icon-theme",
-		"johnbillion.vscode-wordpress-hooks",
 		"editorconfig.editorconfig",
+		"mikestead.dotenv",
 		"letmaik.git-tree-compare",
-		"amirmarmul.laravel-blade-vscode",
-		"eg2.vscode-npm-script",
-		"damianbal.php-class-generator-composer-psr-4",
-		"felixfbecker.php-debug",
-		"bmewburn.vscode-intelephense-client",
-		"mehedidracula.php-namespace-resolver",
-		"yogensia.searchwpdocs",
 		"albert.tabout",
+		"gruntfuggly.todo-tree",
+
+		// YAML Support
+		"redhat.vscode-yaml",
+		
+		// JS Support 
+		"dbaeumer.vscode-eslint",
+		"dsznajder.es7-react-js-snippets",
+		"eg2.vscode-npm-script",
+
+		// PHP Support
+		"bmewburn.vscode-intelephense-client",
+		"damianbal.php-class-generator-composer-psr-4",
+		"mehedidracula.php-namespace-resolver",
+		"felixfbecker.php-debug",
+		"amirmarmul.laravel-blade-vscode",
+		"mblode.twig-language-2",
+
+		// Tailwind Support 
 		"bradlc.vscode-tailwindcss",
 		"austenc.tailwind-docs",
 		"macieklad.tailwind-sass-syntax",
-		"mblode.twig-language-2",
-		"redhat.vscode-yaml",
-		"gruntfuggly.todo-tree"
+
+		// WordPress specific 
+		"yogensia.searchwpdocs",
+		"johnbillion.vscode-wordpress-hooks",
+		"closemarketing.wp-development-toolbox"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
