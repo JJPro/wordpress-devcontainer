@@ -50,7 +50,3 @@ RUN wp core download && \
 
 
 
-# start services php mariadb nginx 
-# ENTRYPOINT ["service nginx start && service mariadb start && service php7.4-fpm start"]
-USER root 
-CMD mariadbd

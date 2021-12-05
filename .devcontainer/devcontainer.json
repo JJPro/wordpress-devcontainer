@@ -61,7 +61,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [8000],
 
-	// "postCreateCommand": "",
+	"postStartCommand": "sudo mariadbd && nohup bash -c 'php -S localhost:8000 -t /home/vscode/wp &'",
 
 	// "containerEnv": {},
 
