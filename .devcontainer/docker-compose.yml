@@ -8,11 +8,6 @@ services:
       args: 
         VARIANT: "bullseye"
         PHP_VERSION: "7.4"
-        # WP_PLUGINS:
-        #   https://downloads.wordpress.org/plugin/gutenberg.11.9.1.zip
-        #   https://downloads.wordpress.org/plugin/theme-check.20210921.zip
-        #   https://downloads.wordpress.org/plugin/query-monitor.3.7.1.zip
-    # depends_on: ['db']
     volumes:
       - ..:/workspace:cached
 
@@ -23,13 +18,14 @@ services:
   db: # 3306
     image: mariadb:10.7
     restart: unless-stopped
-    # volumes: 
-    #   - mariadb-data:/var/lib/mysql
+    volumes: 
+      - mariadb-data:/var/lib/mysql
     environment: 
       MYSQL_ROOT_PASSWORD: mariadb
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+    network_mode: service:app
     # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
@@ -37,9 +33,10 @@ services:
   mailhog: # 1025 - SMTP, 8025 - HTTP
     image: mailhog/mailhog
     restart: unless-stopped
+    network_mode: service:app
+
     # Add "forwardPorts": ["1025", "8025"] to **devcontainer.json** to forward MariaDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
-# TODO: recover volumes 
-# volumes:
-#   mariadb-data:
+volumes:
+  mariadb-data:

@@ -21,7 +21,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
                             libpng-dev \
                             libwebp-dev \
                             libzip-dev \
-                            nginx \
                             mariadb-client \
                             php${PHP_VERSION}-common php${PHP_VERSION}-fpm php${PHP_VERSION}-cli php${PHP_VERSION}-curl php${PHP_VERSION}-mysql php${PHP_VERSION}-mbstring php${PHP_VERSION}-gd php${PHP_VERSION}-bcmath php${PHP_VERSION}-zip php${PHP_VERSION}-xml php${PHP_VERSION} php-xdebug \
                             composer \
@@ -35,17 +34,12 @@ COPY 20-xdebug.ini 20-imagick.ini /etc/php/${PHP_VERSION}/cli/conf.d/
 # install wp-cli
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
-# COPY wait-for-it.sh /wait-for-it.sh
-# RUN chmod +x /wait-for-it.sh
+COPY wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
 
 # download wp core for includePath setting of workspace 
 USER vscode
 WORKDIR /home/vscode/wp
-# RUN wp core download && \
-#     wp config create --dbhost=db --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbcharset=utf8mb4 --skip-check --extra-php="define( 'WP_DEBUG', true);" && \
-#     wp core install --url=localhost:8000 --title="WP DEV" --admin_user=admin --admin_password=password --admin_email=test@example.com --skip-email
-    # wp plugin install --activate ${WP_PLUGINS}
-
-# TODO installed specified plugins and themes 
-# TODO config mailhog connection
-# TODO set up nginx vhost
+RUN wp core download && \
+    wp config create --dbhost=127.0.0.1 --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbcharset=utf8mb4 --skip-check --extra-php="define( 'WP_DEBUG', true);"
+    
