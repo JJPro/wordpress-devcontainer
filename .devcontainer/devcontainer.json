@@ -61,9 +61,12 @@
 
 	"postCreateCommand":
 		"/wait-for-it.sh 127.0.0.1:3306 -t 0 -s -- wp core install --path=/home/vscode/wp --url=localhost:8000 --title='WP DEV' --admin_user=admin --admin_password=password --admin_email=test@example.com --skip-email && wp plugin install --path=/home/vscode/wp --activate gutenberg theme-check query-monitor",
-	"postStartCommand": "nohup bash -c 'php -S localhost:8000 -t /home/vscode/wp &' > /dev/null 2>&1",
+	"postStartCommand": "bash ./setup-customizer.sh && nohup bash -c 'php -S localhost:8000 -t /home/vscode/wp &' > /dev/null 2>&1",
 
-	// "containerEnv": {},
+	"remoteEnv": {
+		"WP_ROOT": "/home/vscode/wp", 
+		"PROJECT_ROOT": "/workspace"
+	},
 
 	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
 	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
