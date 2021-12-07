@@ -2,12 +2,9 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/debian
 {
 	"name": "WordPress Dev",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Debian version: bullseye, buster, stretch
-		// Use bullseye or stretch on local arm64/Apple Silicon.
-		"args": { "VARIANT": "bullseye" }
-	},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
@@ -60,9 +57,9 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [8000],
+	"forwardPorts": [8000, 3306, 1025, 8025],
 
-	"postStartCommand": "sudo mariadbd && nohup bash -c 'php -S localhost:8000 -t /home/vscode/wp &'",
+	// "postStartCommand": "sudo mariadbd && nohup bash -c 'php -S localhost:8000 -t /home/vscode/wp &'",
 
 	// "containerEnv": {},
 
