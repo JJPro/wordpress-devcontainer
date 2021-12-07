@@ -6,9 +6,12 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
 
 COPY .zshrc /home/vscode/.zshrc
 
-# ** [Optional] Uncomment this section to install additional packages. **
+# nmap: for network diagnosis 
+# php-dev php-pear: installs pecl (PHP extension community library)
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
+                            make \
+                            nmap \
                             nginx \
                             libfreetype6-dev \
                             libjpeg-dev \
@@ -18,12 +21,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
                             libzip-dev \
                             php-common php-fpm php-cli php-curl php-mysql php-mbstring php-gd php-bcmath php-exif php-zip php-xml php-xdebug php \
                             composer mariadb-server \
-                            ghostscript # Ghostscript is required for rendering PDF previews \
-                            php-dev php-pear # this installs PECL (PHP Extension Community Library) \
-    && pecl install imagick \
+                            ghostscript \
+                            php-dev php-pear \
+    && yes '' | pecl install imagick \
     && apt purge -y --auto-remove
     
 COPY 20-xdebug.ini /etc/php/7.4/cli/conf.d/20-xdebug.ini
+COPY 20-imagick.ini /etc/php/7.4/cli/conf.d/20-imagick.ini
 
 # install wp-cli
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
