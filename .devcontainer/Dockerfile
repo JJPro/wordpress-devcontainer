@@ -41,5 +41,4 @@ RUN chmod +x /wait-for-it.sh
 USER vscode
 WORKDIR /home/vscode/wp
 RUN wp core download && \
-    wp config create --dbhost=127.0.0.1 --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbcharset=utf8mb4 --skip-check --extra-php="define( 'WP_DEBUG', true);"
-    
+    wp config create --dbhost=127.0.0.1 --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbcharset=utf8mb4 --skip-check --extra-php="define('WP_DEBUG', true);define('SCRIPT_DEBUG', true);define('WP_DEBUG_DISPLAY', true);define('WP_DEBUG_LOG', true);"
