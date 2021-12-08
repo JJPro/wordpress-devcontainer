@@ -20,6 +20,7 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		// Editor Support 
+		"equinusocio.vsc-community-material-theme",
 		"pkief.material-icon-theme",
 		"formulahendry.auto-close-tag",
 		"aaron-bond.better-comments",
