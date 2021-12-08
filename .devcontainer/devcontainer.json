@@ -8,7 +8,6 @@
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.automationShell.linux": "/bin/zsh", 
 		"emmet.includeLanguages": {
 			"blade": "html"
 		},
