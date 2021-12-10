@@ -3,7 +3,7 @@
 # TODO: 
 # ** Uncomment this if this is a WordPress theme project ** 
 THEME_NAME="my-theme" # use current directory name as theme name by default 
-if [ -f $WP_ROOT/wp-content/themes/$THEME_NAME ]; then
+if [ ! -f $WP_ROOT/wp-content/themes/$THEME_NAME ]; then
   ln -s $PROJECT_ROOT $WP_ROOT/wp-content/themes/$THEME_NAME
 fi 
 

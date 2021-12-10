@@ -99,6 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias cdp="cd /workspace"
+alias cdw="cd /home/vscode/wp"
+
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
 
