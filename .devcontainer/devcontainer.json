@@ -9,11 +9,33 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"emmet.includeLanguages": {
-			"blade": "html"
+			"blade": "html",
+			"twig": "html"
 		},
 		"workbench.colorTheme": "Community Material Theme Palenight High Contrast", 
 		"workbench.iconTheme": "material-icon-theme", 
-		"intelephense.environment.includePaths": ["/home/vscode/wp"]
+		"intelephense.environment.includePaths": ["/home/vscode/wp"],
+		"searchwpdocs.openResultsInTab": false,
+		"auto-close-tag.activationOnLanguage": [
+			"xml",
+			"php",
+			"blade",
+			"twig",
+			"ejs",
+			"jinja",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"plaintext",
+			"markdown",
+			"vue",
+			"liquid",
+			"erb",
+			"lang-cfml",
+			"cfml",
+			"HTML (Eex)"
+		]
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
