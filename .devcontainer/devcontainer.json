@@ -51,6 +51,7 @@
 		"mhutchie.git-graph",
 		"albert.tabout",
 		"gruntfuggly.todo-tree",
+		"naumovs.color-highlight",
 
 		// YAML Support
 		"redhat.vscode-yaml",
@@ -72,7 +73,7 @@
 		// Tailwind Support 
 		"bradlc.vscode-tailwindcss",
 		"austenc.tailwind-docs",
-		"macieklad.tailwind-sass-syntax",
+		// "macieklad.tailwind-sass-syntax", // this plugin seems useless
 
 		// WordPress specific 
 		"yogensia.searchwpdocs",
